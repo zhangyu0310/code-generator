@@ -34,4 +34,28 @@ abstract class BasePropertyModel extends RenderableModel
 
         return $this;
     }
+
+    /**
+     * @var string
+     */
+    protected $comment;
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     * @return $this
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
 }

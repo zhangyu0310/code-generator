@@ -30,9 +30,10 @@ class VirtualPropertyModel extends BasePropertyModel
      * @param string $name
      * @param string $type
      */
-    public function __construct($name, $type = null)
+    public function __construct($name, $comment, $type = null)
     {
         $this->setName($name)
+            ->setComment($comment)
             ->setType($type);
     }
 
@@ -52,7 +53,11 @@ class VirtualPropertyModel extends BasePropertyModel
             $property .= ' ' . $this->type;
         }
 
-        return $property . ' $' . $this->name;
+        if (empty($this->comments)) {
+            return $property . ' $' . $this->name;
+        } else {
+            return $property . ' $' . $this->name . ' // ' . $this->comments;
+        }
     }
 
     /**
